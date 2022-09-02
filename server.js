@@ -9,6 +9,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const showlistRoutes = require('./routes/showlist')
+const movieRoutes = require('./routes/movies')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -39,7 +40,7 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
-app.use('/showlist', showlistRoutes)
+app.use('/movies', movieRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

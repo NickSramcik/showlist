@@ -6,7 +6,7 @@ const User = require('../models/User')
  exports.getLogin = (req, res) => {
    // Check to see if user is logged in, if so, redirect to showlist page
    if (req.user) {
-      return res.redirect('/showlist')
+      return res.redirect('/movies')
     }
     res.render('login', {
       title: 'Login'
@@ -39,7 +39,7 @@ const User = require('../models/User')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         req.flash('success', { msg: 'Success! You are logged in.' })
-        res.redirect(req.session.returnTo || '/showlist')
+        res.redirect(req.session.returnTo || '/movies')
       })
     })(req, res, next)
   }
@@ -59,7 +59,7 @@ const User = require('../models/User')
   
   exports.getSignup = (req, res) => {
     if (req.user) {
-      return res.redirect('/showlist')
+      return res.redirect('/movies')
     }
     res.render('signup', {
       title: 'Create Account'
@@ -99,7 +99,7 @@ const User = require('../models/User')
           if (err) {
             return next(err)
           }
-          res.redirect('/showlist')
+          res.redirect('/movies')
         })
       })
     })
