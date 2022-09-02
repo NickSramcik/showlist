@@ -4,8 +4,15 @@ module.exports = {
     getMovies: async (req,res)=>{
         console.log(req.user)
         try{
-            const movieItems = await Movie.find({userId:req.user.id})
-            const moviesLeft = await Movie.countDocuments({userId:req.user.id, watched: false})
+            const movieItems = await Movie.find({
+                userId : req.user.id,
+                deleted: false,
+            })
+            const moviesLeft = await Movie.countDocuments({
+                userId : req.user.id, 
+                watched: false,
+                deleted: false,
+            })
             res.render('movies.ejs', {movies: movieItems, left: moviesLeft, user: req.user})
         }catch(err){
             console.log(err)
@@ -13,7 +20,13 @@ module.exports = {
     },
     createMovie: async (req, res)=>{
         try{
-            await Movie.create({movie: req.body.movieItem, watched: false, recommend: false, userId: req.user.id})
+            await Movie.create({
+                movie: req.body.movieItem, 
+                watched: false, 
+                recommend: false, 
+                deleted: false,
+                userId: req.user.id
+            })
             console.log('Movie has been added!')
             res.redirect('/movies')
         }catch(err){
@@ -58,8 +71,8 @@ module.exports = {
             await Movie.updateOne({_id:req.body.movieIdFromJSFile}, {
                 recommend: true
             })
-            console.log('Incresed recommend by 1')
-            res.json('Incresed recommend by 1')
+            console.log('Recommended Movie')
+            res.json('Recommended Movie')
         }catch(err){
             console.log(err)
         }
@@ -67,9 +80,11 @@ module.exports = {
     deleteMovie: async (req, res)=>{
         console.log(req.body.movieIdFromJSFile)
         try{
-            await Movie.findOneAndDelete({_id:req.body.movieIdFromJSFile})
-            console.log('Deleted Movie')
-            res.json('Deleted It')
+            await Movie.updateOne({_id:req.body.movieIdFromJSFile},{
+                deleted: true
+            })
+            console.log('Show Deleted')
+            res.json('Show Deleted')
         }catch(err){
             console.log(err)
         }

@@ -13,6 +13,10 @@ const MovieSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  deleted: {
+    type: Boolean,
+    required: true,
+  },
   // recommend: {
   //   type: Number, default: 0,
   //   required: true,

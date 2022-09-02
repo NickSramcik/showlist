@@ -8,7 +8,6 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const showlistRoutes = require('./routes/showlist')
 const movieRoutes = require('./routes/movies')
 
 require('dotenv').config({path: './config/.env'})
