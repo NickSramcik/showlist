@@ -29,6 +29,7 @@ module.exports = {
                 .then(data => { 
                         movieTitle = data.results[0].original_title
                         image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
+                        if (image.length <42) {image = "assets/placeholder.jpg"}
                 })
                 .catch(err => {
                     console.log(`error out possible bad search query? ${err}`)
