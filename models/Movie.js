@@ -21,6 +21,14 @@ const MovieSchema = new mongoose.Schema({
   //   type: Number, default: 0,
   //   required: true,
   // },
+  title: {
+    type: String,
+    require:false
+  },
+  image: {
+    type: String, 
+    required:false
+  },
   userId: {
     type: String,
     required: true
