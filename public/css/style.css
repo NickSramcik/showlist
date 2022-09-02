@@ -1,161 +1,230 @@
-/* html {
-    box-sizing: border-box;
-    font-family: 'helvetica neue';
-    font-size: 20px;
-    font-weight: 200;
-  }
-  
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  
-  input {
-    width: 100%;
-    padding: 20px;
-  }
-  
-  .search-form {
-    max-width: 400px;
-    margin: 50px auto;
-  }
-  
-  input.search {
-    margin: 0;
-    text-align: center;
-    outline: 0;
-    border: 10px solid #F7F7F7;
-    width: 120%;
-    left: -10%;
-    position: relative;
-    top: 10px;
-    z-index: 2;
-    border-radius: 5px;
-    font-size: 40px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
-  }
-  
-  .suggestions {
-    margin: 0;
-    padding: 0;
-    position: relative;
-  }
-  
-  .suggestions li {
-    background: white;
-    list-style: none;
-    border-bottom: 1px solid #D8D8D8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-    margin: 0;
-    padding: 20px;
-    transition: background 0.2s;
-    display: flex;
-    justify-content: space-between;
-    text-transform: capitalize;
-  }
-  
-  
-  span.population {
-    font-size: 15px;
-  }
-   */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
-/* .suggestions li {
-    background: white;
-    list-style: none;
-    border-bottom: 1px solid #D8D8D8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-    margin: 0;
-    padding: 20px;
-    transition: background 0.2s;
-    display: flex;
-    justify-content: space-between;
-    text-transform: capitalize;
-} */
+:root {
+    --main-bg-color: #2f3e46;
+    --main-text-color: #cad2c5;
+    --main-highlight-color: #84a98c;
 
-* {
-  box-sizing: border-box;
+    --mid-bg-color: #52b788;
+    --login-hover:  #5dd39e;
+    --signup-hover: #effae9;
+
+    --alert-text: #f72585;
 }
+
 
 body {
-  font: 16px Arial;  
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    width: 100%;
+    height: 100%;
+    font-family: 'Nunito', sans-serif;
 }
-
-/*styling for list of movies*/
-h1{
-  color: red;
-}
-.movieItem {
-  list-style-type: none;
-}
-.watchedMovie {
-  background-color: aquamarine;
-}
-
-.recommend {
-  background-color: rgb(231, 164, 7);
-}
-
-.unWatchedMovie {
-  background-color: yellow;
-}
-
-.watched{
-  color: red;
+.completed{
+    text-decoration: line-through;
+    color: gray;
 }
 .not{
-  color: green;
+    text-decoration: underline;
 }
 
-/*the container must be positioned relative:*/
-.autocomplete {
-  position: relative;
-  display: inline-block;
+
+
+/* 
+===============
+INDEX.ejs  styles
+=============== 
+*/
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.2);
+}
+nav a {
+    color: var(--main-text-color);
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+nav a:hover {
+    color: var(--main-highlight-color)
+}
+.logo {
+    height: 60px;
 }
 
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
+a {
+    text-decoration: none;
 }
 
-input[type=text] {
-  background-color: #f1f1f1;
-  width: 100%;
+section {
+    align-items: center;
+    justify-content: center;
+}
+section h1{
+    color: var(--main-text-color);
+    font-size: 3rem;
+}
+.left-section>div {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+section div img {
+    width: 100%;
+    object-fit: cover;
+}
+.best-buds-description {
+    margin: 2rem 0;
+}
+section div h3 {
+    font-size: 1.3rem;
+}
+.btn {
+    display: flex;
+    color: var(--main-bg-color);
+    font-size: 1.3rem;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    text-decoration: none;  
+}
+.login {
+    background-color: var(--mid-bg-color);
+}
+.login:hover {
+    background-color: var(--login-hover);
+}
+.signup{
+    background-color: var(--main-text-color);
+}
+.signup:hover {
+    background-color: var(--signup-hover);
+}
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 2rem 4rem;
+}
+.trending-shows {
+    display: flex;
+    flex-direction: column; 
+}
+.trending-shows>div {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+}
+.star-rating span {
+    color: yellow;
+    font-size: 0.7rem;
+}
+.single-show-container {
+    width: 120px;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 25px;
+}
+.single-show-container h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.single-show-container h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.single-show-container h3>span {
+    color: yellowgreen;
 }
 
-input[type=submit] {
-  background-color: DodgerBlue;
-  color: #fff;
-  cursor: pointer;
+
+/* 
+===============
+login.ejs  styles
+=============== 
+*/
+#login-section {
+    width: 100vw;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container {
+    max-width: 400px;
+}
+.form-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.form-container h1 {
+    font-size: 2.5rem;
+}
+.form-container p, .form-container input {
+    margin: 15px 0;;
+}
+.form-container input {
+    height: 35px;
+}
+.full-btn {
+    width: 100%;
+    background-color: var(--login-hover);
+    border: none;
+    border-radius: 5px;;
+}
+.full-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+.form-container a {
+    text-decoration: underline;
+    color: var(--main-text-color);
+}
+.underlined-input {
+    background-color: var(--main-bg-color);
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--login-hover);
+}
+.underlined-input:active {
+    outline: none;
+    border: none;
 }
 
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
+
+
+.alert {
+    color: var(--alert-text)
 }
 
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
-}
 
-/*when hovering an item:*/
-.autocomplete-items div:hover {
-  background-color: #e9e9e9; 
-}
 
-/*when navigating through the items using the arrow keys:*/
-.autocomplete-active {
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
-}
+
+
+
+/* breakpoints! */
+@media all and (min-width: 800px) {
+    section {
+        display: flex;
+    }
+    section>div {
+        width: 50%;
+    }
+    
+  }
+
+
+/* * {
+    outline: 1px solid red;
+  } */
