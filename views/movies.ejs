@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <body>
     <h1>Movies to watch</h1>
@@ -13,18 +14,19 @@
     <% movies.forEach( el => { %>
         <%if (el.watched === false) {%>
             <li class='movieItem' data-id='<%=el._id%>'>
-                <span class='not'><%= el.movie %></span>
+                <span class='not'><%= el.title %></span>
+                <img src="<%=el.image%>" alt=""poster image" width="128" ><img>
                 <span class='watchedMovie'> Mark Watched </span>
-                <span class='del'> Delete </span>
+                <span class='del fa fa-circle-xmark'></span>
             </li> 
         <%}%>    
         
     <% }) %>    
     </ul>
 
-    <h4><%= user.userName %> has <%= left %> items in watch list.</h4>
-
-
+    <h1><%= user.userName %> has <%= left %> items in watch list.</h1>
+    <!-- //flash alert for failed query request -->
+    <div class="alert alert-danger"><%= messages.errors%></div>
 
     
     <form autocomplete="off" action="/movies/createMovie" method='POST'>

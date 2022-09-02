@@ -39,8 +39,6 @@ module.exports = {
                         movie: req.body.movieItem, 
                         watched: false, 
                         recommend: false, 
-                        title: movieTitle, 
-                        image: image, 
                         deleted: false,
                         userId: req.user.id
                      })
