@@ -1,3 +1,4 @@
+const fetch = require('node-fetch')
 const Movie = require('../models/Movie')
 
 module.exports = {
