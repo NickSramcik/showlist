@@ -1,10 +1,161 @@
-h1{
-    color: red;
+/* html {
+    box-sizing: border-box;
+    font-family: 'helvetica neue';
+    font-size: 20px;
+    font-weight: 200;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  input {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .search-form {
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  input.search {
+    margin: 0;
+    text-align: center;
+    outline: 0;
+    border: 10px solid #F7F7F7;
+    width: 120%;
+    left: -10%;
+    position: relative;
+    top: 10px;
+    z-index: 2;
+    border-radius: 5px;
+    font-size: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  }
+  
+  .suggestions {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  
+  .suggestions li {
+    background: white;
+    list-style: none;
+    border-bottom: 1px solid #D8D8D8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    margin: 0;
+    padding: 20px;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+  }
+  
+  
+  span.population {
+    font-size: 15px;
+  }
+   */
+
+/* .suggestions li {
+    background: white;
+    list-style: none;
+    border-bottom: 1px solid #D8D8D8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    margin: 0;
+    padding: 20px;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+} */
+
+* {
+  box-sizing: border-box;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+body {
+  font: 16px Arial;  
+}
+
+/*styling for list of movies*/
+h1{
+  color: red;
+}
+.movieItem {
+  list-style-type: none;
+}
+.watchedMovie {
+  background-color: aquamarine;
+}
+
+.recommend {
+  background-color: rgb(231, 164, 7);
+}
+
+.unWatchedMovie {
+  background-color: yellow;
+}
+
+.watched{
+  color: red;
 }
 .not{
-    text-decoration: underline;
+  color: green;
+}
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
 }
