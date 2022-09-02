@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Movies to watch</h1>
+    <ul>
+    <% movies.forEach( el => { %>
+        <%if (el.watched === false) {%>
+            <li class='movieItem' data-id='<%=el._id%>'>
+                <span class='not'><%= el.movie %></span>
+                <span class='watchedMovie'> Mark Watched </span>
+                <span class='del'> Delete </span>
+            </li> 
+        <%}%>    
+        
+    <% }) %>    
+    </ul>
+
+    <h4><%= user.userName %> has <%= left %> items in watch list.</h4>
+
+
+
+    
+    <form autocomplete="off" action="/movies/createMovie" method='POST'>
+        <div class="autocomplete" style="width:300px;">
+            <input id="myInput" type="text" name="movieItem" placeholder="Movie">
+        </div>
+        <input type="submit">
+    </form>
+
+
+
+    <h1>Already Watched</h1>
+    <ul>
+        <% movies.forEach( el => { %>
+            <%if (el.watched === true) {%>
+                <li class='movieItem' data-id='<%=el._id%>'>
+                    <span class='watched'><%= el.movie %></span>
+                    <span class='unWatchedMovie'> Mark unwatched </span>
+                    <span class='recommend'> Recommend? </span>
+                </li> 
+            <%}%>    
+            
+        <% }) %>    
+    </ul>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/myMain.js"></script>
+</body>
+</html>
