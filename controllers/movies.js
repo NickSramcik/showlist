@@ -22,12 +22,13 @@ module.exports = {
     createMovie: async (req, res)=>{
         try{
             let search = req.body.movieItem.replace(" ", "+")
-            const url = `https://api.themoviedb.org/3/search/movie?api_key=9ac0eb557b1857810d37cbef8fd0557b&query=${search}`
+            const url = `https://api.themoviedb.org/3/search/multi?api_key=9ac0eb557b1857810d37cbef8fd0557b&query=${search}`
             //pass request of user input to the movie api to get title and image from api
             await fetch(url)
                 .then(res => res.json()) // parse response as JSON
                 .then(data => { 
-                        movieTitle = data.results[0].original_title
+                    console.log(data)
+                        movieTitle = data.results[0].name
                         image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
                         if (image.length <42) {image = "assets/placeholder.jpg"}
                 })
