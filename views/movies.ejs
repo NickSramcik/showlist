@@ -9,20 +9,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <body>
-    <h1>Movies to watch</h1>
-    <ul>
-    <% movies.forEach( el => { %>
-        <%if (el.watched === false) {%>
-            <li class='movieItem' data-id='<%=el._id%>'>
-                <span class='not'><%= el.title %></span>
-                <img src="<%=el.image%>" alt=""poster image" width="128" ><img>
-                <span class='watchedMovie'> Mark Watched </span>
-                <span class='del fa fa-circle-xmark'></span>
-            </li> 
-        <%}%>    
-        
-    <% }) %>    
-    </ul>
+    <header class="movieEjs">
+        <img class="logo" src='assets/best-buds-logo.png' alt='movie-guide-logo'/>
+        <h1>Movies to watch</h1>
+    </header>
+   
+    <div class="gallery-container"
+        <ul class="movielist">
+            <% movies.forEach( el => { %>
+                <%if (el.watched === false) {%>
+                    <div class="movie-card">
+                        <li class='movieItem' data-id='<%=el._id%>'>
+                            <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
+                            <span class='not'><%= el.title %></br></span>
+                            <span class='watchedMovie'> Mark Watched </span>
+                            <span class='del fa fa-circle-xmark'></span>
+                        </li> 
+                    </div>
+                <%}%>    
+                
+            <% }) %>    
+        </ul>
+    </div>
 
     <h1><%= user.userName %> has <%= left %> items in watch list.</h1>
     

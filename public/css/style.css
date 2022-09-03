@@ -209,9 +209,50 @@ login.ejs  styles
 }
 
 
+/* movie ejs page */
+.gallery-container {
+    height: auto;
+    width: auto;
+    background-color: rgb(9, 32, 44);
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 2em;
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+.movie-card {
+    position: relative;
+    width: 130px;
+    height: auto;
+    position:relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-right: 20px;
+ 
+}
+.movieItem {
+    list-style: none;
+}
 
+.del {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 22px;
+}
+.movie-image {
 
-
+    border-radius: .25rem;
+}
+.movieEjs  {
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 6em;
+    color: rgb(201, 223, 255);
+}
 
 /* breakpoints! */
 @media all and (min-width: 800px) {
