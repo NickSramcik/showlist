@@ -12,7 +12,8 @@
     <header class="movieHeader">
         <div class="header-Container">
             <img class="logo" src='assets/best-buds-logo.png' alt='movie-guide-logo'/>
-            <h1>Movies to watch</h1>
+            <h1><%= user.userName %>'s Watch list</h1>
+            
             <a class="logout"/logout">Logout</a>
         </div>
     </header>
@@ -36,9 +37,11 @@
     </div>
     
 <div class="formInputs">
-    <h1><%= user.userName %> has <%= left %> items in watch list.</h1>
+    <!-- <h1><%= user.userName %> has <%= left %> items in watch list.</h1> -->
         
      <!-- //flash alert for failed query request -->
+     
+
         <% if (messages.errors) { %>
             <% messages.errors.forEach( el => { %>
                 <h2><div class="alert alert-danger"><%= messages.errors%></div></h2>
@@ -47,24 +50,30 @@
 
         <form autocomplete="off" action="/movies/createMovie" method='POST'>
             <div class="autocomplete" >
-            <input id="myInput" type="text" name="movieItem" placeholder="Movie"><input type="submit">
+            <input id="myInput" type="text" name="movieItem" placeholder="Movie"><input id="submitButton" type="submit">
             </div>
         </form>
 
+        
+  
+    <% var count = 0; %>
+    <%     if(count > 2)   { %>
+        <h1>Already Watched</h1>
+        <ul>
+    <%      }   %> 
 
-    <h1>Already Watched</h1>
-    <ul>
-        <% movies.forEach( el => { %>
-            <%if (el.watched === true) {%>
-                <li class='movieItem' data-id='<%=el._id%>'>
-                    <span class='watched'><%= el.movie %></span>
-                    <span class='unWatchedMovie'> Mark unwatched </span>
-                    <span class='recommend'> Recommend? </span>
-                </li> 
-            <%}%>    
-        <% }) %>    
-    </ul>
-
+            <% movies.forEach( el => { %>
+                <%if (el.watched === true) {%>
+                    <% count = 22 %>
+                    <li class='movieItem' data-id='<%=el._id%>'>
+                        <span class='watched'><%= el.movie %></span>
+                        <span class='unWatchedMovie'> Mark unwatched </span>
+                        <span class='recommend'> Recommend? </span>
+                    </li> 
+                <%}%>    
+            <% }) %>    
+        </ul>
+ 
 </div>
 
     
