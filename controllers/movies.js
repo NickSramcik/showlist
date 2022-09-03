@@ -27,10 +27,14 @@ module.exports = {
             await fetch(url)
                 .then(res => res.json()) // parse response as JSON
                 .then(data => { 
+                    console.log(data.results[0].media_type)
                     console.log(data)
-                        movieTitle = data.results[0].name || data.results[0].title;
+                    if( data.results[0].media_type != "person"){
+                        movieTitle = data.results[0].name || data.results[0].title
                         image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
-                        if (image.length <42) {image = "assets/placeholder.jpg"}
+                        if (image.length <42) {image = "assets/placeholder.jpg"}}
+                    else{movieTitle = ""}
+                     
                 })
                 .catch(err => {
                     console.log(`error out possible bad search query? ${err}`)
