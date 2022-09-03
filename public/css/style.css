@@ -216,10 +216,12 @@ login.ejs  styles
     margin-bottom: 12px;
 }
 .header-Container {
-    margin-left: 20%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 6em;
+    column-gap: 20%;
+    width: 80%;
 }
 .header-Container .logo {
     padding-top: 10px;
@@ -279,8 +281,17 @@ login.ejs  styles
     align-content: center;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 100%; 
+}
+
+#myInput{
     
+    width: 89%;
+}
+#submitButton{
+    border: 2px solid white;
+    background-color: rgb(255, 255, 255);
+    width:10%;
 }
 
 /* breakpoints! */
