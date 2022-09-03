@@ -10,6 +10,13 @@
     --signup-hover: #effae9;
 
     --alert-text: #f72585;
+
+    /* title colored text */
+    --color-1: #f4f1de;
+    --color-2: #2a9a9f;
+    --color-3: #f1b211;
+    --color-4: #e07a5f;
+    --color-5: #81b29a;
 }
 
 
@@ -32,7 +39,7 @@ body {
 
 /* 
 ===============
-INDEX.ejs  styles
+partials --> navbar.ejs  styles
 =============== 
 */
 nav {
@@ -42,7 +49,7 @@ nav {
     height: 60px;
     box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.2);
 }
-nav a {
+nav a, nav h1 {
     color: var(--main-text-color);
     font-size: 1.5rem;
     font-weight: bolder;
@@ -54,10 +61,43 @@ nav a:hover {
     height: 60px;
 }
 
+/* 
+===============
+partials --> footer.ejs  styles
+=============== 
+*/
+footer {
+  margin: 25px 0;
+  text-align: center;
+  padding: 5px 50px;
+}
+footer a {
+  text-decoration: underline; 
+  color: var(--main-text-color);
+}
+/* differentiate on names of footer */
+.odd-list {
+  color: var(--signup-hover)
+}
+
+
+/* 
+================
+Scrollbar
+================
+*/
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 
+===============
+INDEX.ejs  styles
+=============== 
+*/
 a {
     text-decoration: none;
 }
-
 section {
     align-items: center;
     justify-content: center;
@@ -66,7 +106,47 @@ section h1{
     color: var(--main-text-color);
     font-size: 3rem;
 }
-.left-section>div {
+.index-top { 
+  background-image: url("https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  min-height: calc(100vh - 60px)
+}
+.index-description {
+  background-color: var(--main-bg-color);
+}
+.index-description h3 {
+  font-size: 1rem;
+}
+
+/* multi-colored text for the title */
+.title-wrapper {
+  background: var(--main-bg-color);
+  line-height: 1;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  min-height: fit-content;
+}
+.index-description h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: auto;
+  text-transform: uppercase;
+  background: linear-gradient(219deg, 
+    var(--color-1) 19%, 
+    transparent 19%,transparent 20%, 
+    var(--color-2) 20%, var(--color-2)  39%,
+    transparent 39%,transparent 40%, 
+    var(--color-3) 40%,var(--color-3) 59% ,
+    transparent 59%,transparent 60%, 
+    var(--color-4) 60%, var(--color-4) 79%,
+    transparent 79%, transparent 80%, 
+    var(--color-5) 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.index-top>div {
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -80,6 +160,7 @@ section div img {
 }
 .best-buds-description {
     margin: 2rem 0;
+    line-height: 1.8rem;
 }
 section div h3 {
     font-size: 1.3rem;
@@ -93,7 +174,8 @@ section div h3 {
     align-items: center;
     width: 100px;
     height: 50px;
-    text-decoration: none;  
+    text-decoration: none; 
+    border-radius: 5px; 
 }
 .login {
     background-color: var(--mid-bg-color);
@@ -196,25 +278,27 @@ login.ejs  styles
     border: none;
     outline: none;
     border-bottom: 1px solid var(--login-hover);
+    color: var(--main-text-color)
 }
 .underlined-input:active {
     outline: none;
     border: none;
 }
 
-
-
 .alert {
     color: var(--alert-text)
 }
 
 
+
+
 /* movie ejs page */
 .movieHeader {
-    
     box-shadow: 0 0 10px 1px rgb(255 255 255 / 20%);
     margin-bottom: 12px;
 }
+
+
 .header-Container {
     margin-left: auto;
     margin-right: auto;
@@ -299,8 +383,21 @@ login.ejs  styles
     section {
         display: flex;
     }
-    section>div {
-        width: 50%;
+    .index-description {
+      width: 40%;
+    }
+    .index-pic {
+      width: 60%;
+    }
+    .index-top>div {
+      padding: 5rem;
+      border-radius: 20px;
+    }
+    .index-description h1 {
+      font-size: 4rem;
+    }
+    .index-description h3 {
+      font-size: 1.3rem;
     }
     
   }
