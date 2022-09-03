@@ -54,9 +54,12 @@
             </div>
         </form>
 
-        
+        <% var count = 0; %>
+        <% movies.forEach( el => { %>
+            <%if (el.watched === true) {%>
+                <%   count =100 %> 
+            <% }}) %>    
   
-    <% var count = 0; %>
     <%     if(count > 2)   { %>
         <h1>Already Watched</h1>
         <ul>
@@ -64,7 +67,7 @@
 
             <% movies.forEach( el => { %>
                 <%if (el.watched === true) {%>
-                    <% count = 22 %>
+                   
                     <li class='movieItem' data-id='<%=el._id%>'>
                         <span class='watched'><%= el.movie %></span>
                         <span class='unWatchedMovie'> Mark unwatched </span>
