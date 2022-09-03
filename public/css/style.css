@@ -353,12 +353,17 @@ login.ejs  styles
     bottom:10px;
     left: 20px;
     font-size: 22px;
+    color: rgb(87, 121, 255);
+
 }
 .liked{
     position: absolute;
     bottom:10px;
     left: 60px;
     font-size: 22px;
+    color: rgb(87, 121, 255);
+
+
 }
 
 .del {
@@ -366,6 +371,9 @@ login.ejs  styles
     bottom: 10px;
     right: 15px;
     font-size: 22px;
+    color: rgb(87, 121, 255);
+    opacity: 100%;
+
 }
 .icon-background {
     opacity: 0%;
@@ -377,8 +385,8 @@ login.ejs  styles
 }
 
 .icon-background:hover {
-   opacity: 90%;
-   background: rgba(255, 165, 0, 0.10);
+   opacity: 100%;
+   background: rgba(255, 255, 255, 0.7);
    box-shadow: 0 0 10px #9ecaed;
     position: absolute;
     top: 0px;
