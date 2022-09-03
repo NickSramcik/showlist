@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- reset and normalize -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/reset.css">
+    
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    
+    <title>Watchlist</title>
 </head>
 <body>
-    <header class="movieHeader">
-        <div class="header-Container">
+    <nav>
+        <a href="/">
             <img class="logo" src='assets/best-buds-logo.png' alt='movie-guide-logo'/>
-            <h1><%= user.userName %>'s Watch list</h1>
-            
-            <a class="logout"/logout">Logout</a>
-        </div>
-    </header>
+        </a>
+        
+        <h1>
+            <%= user.userName %>'s Watch list
+        </h1>
+        
+        <a class="logout" href="/logout">Logout</a>
+    </nav>
    
     <div class="gallery-container"
         <ul class="movielist">
@@ -79,7 +89,10 @@
  
 </div>
 
-    
+
+
+<%- include('partials/footer.ejs') %>
+
     <script src="js/Main.js"></script>
 </body>
 </html>
