@@ -325,7 +325,7 @@ login.ejs  styles
 .gallery-container {
     height: auto;
     width: auto;
-
+    background-color: rgb(9, 32, 44);
     display: flex;
     flex-wrap: wrap;
     row-gap: 10px;
@@ -347,50 +347,48 @@ login.ejs  styles
 .movieItem {
     list-style: none;
 }
-
-.watchedMovie {
-    position: absolute;
-    bottom:10px;
-    left: 20px;
-    font-size: 22px;
-}
-.liked{
-    position: absolute;
-    bottom:10px;
-    left: 60px;
-    font-size: 22px;
-}
-
-.del {
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    font-size: 22px;
-}
-.icon-background {
-    opacity: 0%;
+.info {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 120px;
+    width: 130px;
     height: 180px;
+    z-index: 9999;
+    opacity: 30%;
 }
-
-.icon-background:hover {
-   opacity: 90%;
-   background: rgba(255, 165, 0, 0.10);
-   box-shadow: 0 0 10px #9ecaed;
+.info:hover {
+    background-color: red;
     position: absolute;
     top: 0px;
     left: 0px;
     width: 130px;
     height: 190px;
+    z-index: 9999;
+    opacity: 30%;
+}
+.cover {
+    position: relative;
+    z-index: 44444;
+    background-color: rgb(128, 0, 255);
+    height: auto;
+    width: 130px;
+
+}
+
+.movieItem {
+    position: relative;
+    list-style: none;
+}
+
+.del {
+    position: absolute;
+    bottom: 30px;
+    right: 0px;
+    font-size: 224px;
 }
 .movie-image {
+
     border-radius: .25rem;
-}
-.movie-image:hover {
-    opacity: 50%;
 }
 .formInputs {
     position:relative;
