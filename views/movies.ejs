@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <body>
-    <header class="movieEjs">
-        <img class="logo" src='assets/best-buds-logo.png' alt='movie-guide-logo'/>
-        <h1>Movies to watch</h1>
+    <header class="movieHeader">
+        <div class="header-Container">
+            <img class="logo" src='assets/best-buds-logo.png' alt='movie-guide-logo'/>
+            <h1>Movies to watch</h1>
+            <a class="logout"/logout">Logout</a>
+        </div>
     </header>
    
     <div class="gallery-container"
@@ -31,19 +34,23 @@
             <% }) %>    
         </ul>
     </div>
-
+    
+<div class="formInputs">
     <h1><%= user.userName %> has <%= left %> items in watch list.</h1>
-    
-    <!-- //flash alert for failed query request -->
-    <h2><div class="alert alert-danger"><%= messages.errors%></div></h2>
+        
+     <!-- //flash alert for failed query request -->
+        <% if (messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <h2><div class="alert alert-danger"><%= messages.errors%></div></h2>
+            <% }) %>    
+        <% } %>
 
-    
-    <form autocomplete="off" action="/movies/createMovie" method='POST'>
-        <div class="autocomplete" style="width:300px;">
-            <input id="myInput" type="text" name="movieItem" placeholder="Movie">
-        </div>
-        <input type="submit">
-    </form>
+        <form autocomplete="off" action="/movies/createMovie" method='POST'>
+            <div class="autocomplete" >
+            <input id="myInput" type="text" name="movieItem" placeholder="Movie"><input type="submit">
+            </div>
+        </form>
+
 
     <h1>Already Watched</h1>
     <ul>
@@ -55,12 +62,12 @@
                     <span class='recommend'> Recommend? </span>
                 </li> 
             <%}%>    
-            
         <% }) %>    
     </ul>
 
-    <a href="/logout">Logout</a>
+</div>
 
+    
     <script src="js/Main.js"></script>
 </body>
 </html>

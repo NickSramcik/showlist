@@ -210,6 +210,32 @@ login.ejs  styles
 
 
 /* movie ejs page */
+.movieHeader {
+    
+    box-shadow: 0 0 10px 1px rgb(255 255 255 / 20%);
+    margin-bottom: 12px;
+}
+.header-Container {
+    margin-left: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 6em;
+}
+.header-Container .logo {
+    padding-top: 10px;
+}
+.header-Container .logout {
+  
+    padding-top: 20px;
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+}
+.header-Container .logout:visited {
+    color:#cad2c5;
+}
+.header-Container .logout:hover {
+    color: aquamarine;
+}
 .gallery-container {
     height: auto;
     width: auto;
@@ -246,12 +272,15 @@ login.ejs  styles
 
     border-radius: .25rem;
 }
-.movieEjs  {
-    margin-left: 10%;
+.formInputs {
+    position:relative;
     display: flex;
-    flex-wrap: wrap;
-    column-gap: 6em;
-    color: rgb(201, 223, 255);
+    flex-direction: column;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    
 }
 
 /* breakpoints! */
