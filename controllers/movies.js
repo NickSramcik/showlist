@@ -27,8 +27,8 @@ module.exports = {
             await fetch(url)
                 .then(res => res.json()) // parse response as JSON
                 .then(data => { 
-                    console.log(data.results[0].media_type)
-                    console.log(data)
+                    //console.log(data.results[0].media_type)
+                    //console.log(data)
                     if( data.results[0].media_type != "person"){
                         movieTitle = data.results[0].name || data.results[0].title
                         console.log(movieTitle)
@@ -41,8 +41,9 @@ module.exports = {
                     console.log(`error out possible bad search query? ${err}`)
                     movieTitle = ""
                 })
-                //if movietitle was found in the api add it to the list   
-                if(movieTitle === req.body.movieItem){
+                //if movietitle was found in the api add it to the list 
+                console.log(movieTitle.toLowerCase())  
+                if(movieTitle.toLowerCase() === req.body.movieItem.toLowerCase()){
                     await Movie.create({
                         movie: req.body.movieItem, 
                         watched: false, 

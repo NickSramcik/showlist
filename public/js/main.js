@@ -1,7 +1,7 @@
 const deleteBtn = document.querySelectorAll('.del')
 const watchedBtn = document.querySelectorAll('.watchedMovie')
 const unWatchedBtn = document.querySelectorAll('.unWatchedMovie')
-const recommendBtn = document.querySelectorAll('.recommend')
+const recommendBtn = document.querySelectorAll('.liked')
 
 // const movieItem = document.querySelectorAll('span.not')
 // const movieWatched = document.querySelectorAll('span.watched')
