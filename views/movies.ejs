@@ -20,16 +20,26 @@
         <a href="/">
             <img class="logo" src='assets/best-buds-logo.png' alt='movie-guide-logo'/>
         </a>
-        
+
+
+        <ul class="tabs">
+            <li data-tab-target="#home" class="active tab">Home</li>
+            <li data-tab-target="#watched" class="tab">Already Watched</li>
+          </ul>
+
+
         <h1>
             <%= user.userName %>'s Watch list
         </h1>
         
         <a class="logout" href="/logout">Logout</a>
     </nav>
-   
-    <div class="gallery-container"
-        <ul class="movielist">
+
+   <div class="tab-content">
+  <div id="home" data-tab-content class="active">
+
+
+    <div class="gallery-container movielist">
             <% movies.forEach( el => { %>
                 <%if (el.watched === false) {%>
                     <div class="movie-card">
@@ -47,9 +57,37 @@
                 <%}%>    
                 
             <% }) %>    
-        </ul>
+     
     </div>
-    
+   </div>  
+
+
+   <div id="watched" data-tab-content>
+
+
+   <h1>Already Watched</h1>
+   <ul>
+
+
+       <% movies.forEach( el => { %>
+           <%if (el.watched === true) {%>
+              
+               <li class='movieItem' data-id='<%=el._id%>'>
+               <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
+                   <span class='watched'><%= el.movie %></span>
+                   <span class='unWatchedMovie'> Mark unwatched </span>
+                   <span class='recommend'> Recommend? </span>
+               </li> 
+           <%}%>    
+       <% }) %>    
+   </ul>
+</div> 
+
+
+
+</div>  
+
+     
 <div class="formInputs">
     <!-- <h1><%= user.userName %> has <%= left %> items in watch list.</h1> -->
         
@@ -67,31 +105,13 @@
             <input id="myInput" type="text" name="movieItem" placeholder="Movie"><input id="submitButton" type="submit">
             </div>
         </form>
+    </div>
 
-        <% var count = 0; %>
-        <% movies.forEach( el => { %>
-            <%if (el.watched === true) {%>
-                <%   count =100 %> 
-            <% }}) %>    
-  
-    <%     if(count > 2)   { %>
-        <h1>Already Watched</h1>
-        <ul>
-    <%      }   %> 
 
-            <% movies.forEach( el => { %>
-                <%if (el.watched === true) {%>
-                   
-                    <li class='movieItem' data-id='<%=el._id%>'>
-                        <span class='watched'><%= el.movie %></span>
-                        <span class='unWatchedMovie'> Mark unwatched </span>
-                        <span class='recommend'> Recommend? </span>
-                    </li> 
-                <%}%>    
-            <% }) %>    
-        </ul>
- 
-</div>
+
+    
+       
+
 
 
 

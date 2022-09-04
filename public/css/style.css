@@ -420,6 +420,63 @@ login.ejs  styles
     width:10%;
 }
 
+
+
+
+
+
+[data-tab-content] {
+    display: none;
+  }
+  
+  .active[data-tab-content] {
+    display: block;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid black;
+  }
+  
+  .tab {
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .tab.active {
+    background-color: rgb(4, 61, 29);
+  }
+  
+  .tab:hover {
+    background-color: rgb(50, 251, 157);
+  }
+  
+  .tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
 /* breakpoints! */
 @media all and (min-width: 800px) {
     section {
