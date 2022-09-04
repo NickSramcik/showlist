@@ -322,23 +322,23 @@ login.ejs  styles
 .gallery-container {
     height: auto;
     width: auto;
-    display: flex;
-    flex-wrap: wrap;
     row-gap: 10px;
     column-gap: 2em;
     padding-top:20px;
     padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
 }
+
 .movie-card {
-    position: relative;
     width: 130px;
     height: auto;
     position:relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
     margin-right: 20px;
- 
+    row-gap: 10px;
+    column-gap: 2em;
 }
 .movieItem {
     list-style: none;
@@ -415,10 +415,6 @@ login.ejs  styles
     background-color: rgb(255, 255, 255);
     width:10%;
 }
-
-
-
-
 
 
 [data-tab-content] {

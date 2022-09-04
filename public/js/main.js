@@ -3,10 +3,8 @@ const watchedBtn = document.querySelectorAll('.watchedMovie')
 const unWatchedBtn = document.querySelectorAll('.unWatchedMovie')
 const recommendBtn = document.querySelectorAll('.recommend')
 
-
 // const movieItem = document.querySelectorAll('span.not')
 // const movieWatched = document.querySelectorAll('span.watched')
-
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteMovie)
@@ -33,7 +31,6 @@ Array.from(recommendBtn).forEach((el)=>{
 // })
 
 
-
 const tabs = document.querySelectorAll('[data-tab-target]')
 const tabContents = document.querySelectorAll('[data-tab-content]')
 
@@ -50,8 +47,6 @@ tabs.forEach(tab => {
     target.classList.add('active')
   })
 })
-
-
 
 
 async function deleteMovie(){
