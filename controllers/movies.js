@@ -31,6 +31,7 @@ module.exports = {
                     console.log(data)
                     if( data.results[0].media_type != "person"){
                         movieTitle = data.results[0].name || data.results[0].title
+                        console.log(movieTitle)
                         image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
                         if (image.length <42) {image = "assets/placeholder.jpg"}}
                     else{movieTitle = ""}
@@ -41,7 +42,7 @@ module.exports = {
                     movieTitle = ""
                 })
                 //if movietitle was found in the api add it to the list   
-                if(movieTitle.length > 1){
+                if(movieTitle === req.body.movieItem){
                     await Movie.create({
                         movie: req.body.movieItem, 
                         watched: false, 
@@ -50,11 +51,11 @@ module.exports = {
                         image: image, 
                         deleted: false,
                         userId: req.user.id
-                     })
+                    })
                         console.log('Movie has been added!')
                         res.redirect('/movies')
-                    }
-                   //if the movie title was not found in the database send a flash error to the user letting them know.
+                }
+                //if the movie title was not found in the database send a flash error to the user letting them know.
                 else{   
                     let movieTitle = "" 
                     console.log(` ${req.body.movieItem} was not found or added!`)
