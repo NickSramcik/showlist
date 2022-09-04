@@ -65,22 +65,21 @@
    <div id="watched" data-tab-content>
 
 
-   <h1>Already Watched</h1>
-   <ul>
 
-
-       <% movies.forEach( el => { %>
+   <div class="gallery-container movielist">  
+      <% movies.forEach( el => { %>
            <%if (el.watched === true) {%>
-              
-               <li class='movieItem' data-id='<%=el._id%>'>
+           
+               <div class='movie-card' data-id='<%=el._id%>'>
                <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
                    <span class='watched'><%= el.movie %></span>
                    <span class='unWatchedMovie'> Mark unwatched </span>
                    <span class='recommend'> Recommend? </span>
-               </li> 
-           <%}%>    
+                </div> 
+           <%}%>       
        <% }) %>    
-   </ul>
+             
+    </div> 
 </div> 
 
 
