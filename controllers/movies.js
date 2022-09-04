@@ -38,7 +38,10 @@ module.exports = {
                 })
                 .catch(err => {
                     console.log(`error out possible bad search query? ${err}`)
-                    movieTitle = ""
+                    movieTitle = req.body.movieItem
+                    image = "assets/placeholder.jpg"
+
+
                 })
                 //if movietitle was found in the api add it to the list   
                 if(movieTitle.length > 1){

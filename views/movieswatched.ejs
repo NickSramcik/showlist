@@ -36,7 +36,7 @@
     </nav>
 
    <div class="tab-content">
-  <div id="home" data-tab-content class="active">
+  <div id="home" data-tab-content>
 
 
     <div class="gallery-container movielist">
@@ -45,7 +45,7 @@
                     <div class="movie-card">
                         <li class='movieItem' data-id='<%=el._id%>'>
                             <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
-                            <span class='not'><%= el.title %></br></span>
+                            <!-- <span class='not'><%= el.title %></br></span> -->
                             <div class="icon-background" data-id='<%=el._id%>'>
                             <span class='watchedMovie fa fa-binoculars'></span>
                             <span class="liked fa fa-arrow-up"></span>
@@ -62,7 +62,7 @@
    </div>  
 
 
-   <div id="watched" data-tab-content>
+   <div id="watched" data-tab-content class="active">
 
 
 
