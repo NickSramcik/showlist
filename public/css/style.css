@@ -290,14 +290,11 @@ login.ejs  styles
 }
 
 
-
-
 /* movie ejs page */
 .movieHeader {
     box-shadow: 0 0 10px 1px rgb(255 255 255 / 20%);
     margin-bottom: 12px;
 }
-
 
 .header-Container {
     margin-left: auto;
@@ -325,7 +322,6 @@ login.ejs  styles
 .gallery-container {
     height: auto;
     width: auto;
-
     display: flex;
     flex-wrap: wrap;
     row-gap: 10px;
@@ -427,10 +423,12 @@ login.ejs  styles
 
 [data-tab-content] {
     display: none;
+    
   }
   
   .active[data-tab-content] {
     display: block;
+    
   }
   
   body {
@@ -461,8 +459,8 @@ login.ejs  styles
   }
   
   .tab-content {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-top: 10px;
+    background-color:rgb(9, 32, 44);
   }
   
 
