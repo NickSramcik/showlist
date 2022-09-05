@@ -174,7 +174,8 @@ function autocomplete(inp, arr) {
         for (i = 0; i < arr.length; i++) {
             /*create a DIV element for each matching element:*/
             b = document.createElement("DIV")
-            
+            b.setAttribute("id", "auto-item")
+
             /*set the innerHTML to the title of the movie or show & 
             insert a input field that will hold the current array item's value*/
             if (arr[i].media_type === 'movie') {

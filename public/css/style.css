@@ -517,6 +517,7 @@ login.ejs  styles
     width: 80%;
     border: 2px solid rgba(43, 106, 3, 0.443);
     border-radius: .25rem;
+    font-size: 24px;
     }
     #myinput:active{
         background-color: red;
@@ -528,7 +529,7 @@ login.ejs  styles
     border-radius: .25rem;
     width: 50px;
     }
-  .autocomplete {
+  .autocomplete { 
     
     
     text-align: center;
@@ -541,9 +542,13 @@ login.ejs  styles
     margin-left: 8%;
     color: black;
   }
-
-
-
+  #auto-item{
+    font-size: 22px;
+  }
+  #auto-item:hover {
+    background-color: rgb(0, 136, 255);
+   
+  }
 
 
 
