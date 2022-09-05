@@ -100,8 +100,10 @@
         <% } %>
 
         <form autocomplete="off" action="/movies/createMovie" method='POST'>
+            
+            <input id="myInput" type="text" name="movieItem" placeholder="Search for a movie or show">
+            <button id="submitButton" type="submit"><i class="fa fa-search"></i></button>
             <div class="autocomplete" >
-            <input id="myInput" type="text" name="movieItem" placeholder="Movie"><input id="submitButton" type="submit">
             </div>
         </form>
     </div>
