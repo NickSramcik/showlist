@@ -58,9 +58,15 @@ nav a:hover {
     color: var(--main-highlight-color)
 }
 .logo {
-    height: 50px;
+    height:50px;
+}
+.logoIndex {
+    height: 130px;
 }
 
+.moviePage h1, .moviePage a {
+ color: white;
+}
 /* 
 ===============
 partials --> footer.ejs  styles
@@ -522,7 +528,9 @@ login.ejs  styles
     color: black;
   }
 
-
+  .moviepage {
+    color: white;
+  }
 
 
 
