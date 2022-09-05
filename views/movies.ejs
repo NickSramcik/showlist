@@ -36,9 +36,9 @@
                 <div class="autocomplete" >
                 <input id="myInput" type="text" name="movieItem" placeholder="Search for a movie or show">
                 <button id="submitButton" type="submit"><i class="fa fa-search"></i></button>
-                </div>
+               
             </form>
-
+        </div>
         
             <% if (messages.errors) { %>
                 <% messages.errors.forEach( el => { %>
@@ -62,11 +62,9 @@
 
 
 
-   <div class="tab-content">
+<div class="tab-content">
   <div id="home" data-tab-content class="active">
-
-
-    <div class="gallery-container movielist">
+  <div class="gallery-container movielist">
             <% movies.forEach( el => { %>
                 <%if (el.watched === false) {%>
                     <div class="movie-card">
@@ -112,11 +110,48 @@
 
 
 </div>  
+<div class="recommendTitle">
+   <h1> User Recommended</h1>
+</div>
 
-     
+    <div class="recommend gallery-container movielist">  
+       <% movies.forEach( el => { %>
+            <%if (el.recommend === true) {%>
+                <div class='movie-card' data-id='<%=el._id%>'>
+                <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
+                    <span class='watched'><%= el.movie %></span>
+                    <span class='unWatchedMovie'> Mark unwatched </span>
+                    <span class='recommend'> Recommend? </span>
+                 </div> 
+            <%}%>       
+        <% }) %>    
+
+ </div>    
 
 
-
+ <div class="tab-content">
+    <div id="home" data-tab-content class="active">
+    <div class="gallery-container movielist">
+              <% dbMovies.forEach( el => { %>
+                  <%if (el.watched === false) {%>
+                      <div class="movie-card">
+                          <li class='movieItem' data-id='<%=el._id%>'>
+                              <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
+                              <!-- <span class='not'><%= el.title %></br></span> -->
+                              <div class="icon-background" data-id='<%=el._id%>'>
+                              <span class='watchedMovie fa fa-binoculars'></span>
+                              <span class="liked fa fa-arrow-up"></span>
+                              <span class='del fa fa-circle-xmark'></span>
+                              </div>
+                              
+                          </li> 
+                      </div>
+                  <%}%>    
+                  
+              <% }) %>    
+       
+      </div>
+     </div>  
     
        
 

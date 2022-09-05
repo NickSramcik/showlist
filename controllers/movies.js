@@ -14,7 +14,10 @@ module.exports = {
                 watched: false,
                 deleted: false,
             })
-            res.render('movies.ejs', {movies: movieItems, left: moviesLeft, user: req.user})
+            const moviesDB = await Movie.find({
+                recommend: true,
+            })
+            res.render('movies.ejs', {movies: movieItems, left: moviesLeft, dbMovies: moviesDB, user: req.user})
         }catch(err){
             console.log(err)
         }
@@ -108,9 +111,15 @@ module.exports = {
     // },
     recommendMovie: async (req, res)=>{
         try{
-            await Movie.updateOne({_id:req.body.movieIdFromJSFile}, {
-                recommend: true
+            const movies = await Movie.find({
+                userId : req.user.id,
+                deleted: false,
             })
+
+            if({_id:req.body.movieIdFromJSFile.recommend} == true){
+            await Movie.updateOne({_id:req.body.movieIdFromJSFile}, {
+                recommend: false
+            })}
             console.log('Recommended Movie')
             res.json('Recommended Movie')
         }catch(err){
@@ -118,11 +127,12 @@ module.exports = {
         }
     },
     deleteMovie: async (req, res)=>{
-        console.log(req.body.movieIdFromJSFile)
+       
         try{
             await Movie.updateOne({_id:req.body.movieIdFromJSFile},{
                 deleted: true
             })
+            console.log(req.body.movieIdFromJSFile)
             console.log('Show Deleted')
             res.json('Show Deleted')
         }catch(err){
