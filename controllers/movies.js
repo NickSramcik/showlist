@@ -43,7 +43,7 @@ module.exports = {
                 })
                 //if movietitle was found in the api add it to the list 
                 console.log(movieTitle.toLowerCase())  
-                if(movieTitle.toLowerCase() === req.body.movieItem.toLowerCase()){
+                if (movieTitle.length < req.body.movieItem.length + 3 && movieTitle.length > req.body.movieItem.length - 3){
                     await Movie.create({
                         movie: req.body.movieItem, 
                         watched: false, 

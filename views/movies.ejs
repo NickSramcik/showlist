@@ -21,16 +21,35 @@
             <img class="logo" src='assets/best-buds-logo.png' alt='movie-guide-logo'/>
         </a>
 
-
-      
-
-
         <h1>
             <%= user.userName %>'s Watch list
         </h1>
         
         <a class="logout" href="/logout">Logout</a>
     </nav>
+    
+    <div class="formInputs">
+        <!-- <h1><%= user.userName %> has <%= left %> items in watch list.</h1> -->
+            
+         <!-- //flash alert for failed query request -->
+            <form class="formInput" autocomplete="off" action="/movies/createMovie" method='POST'>
+                <div class="autocomplete" >
+                <input id="myInput" type="text" name="movieItem" placeholder="Search for a movie or show">
+                <button id="submitButton" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+
+        
+            <% if (messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <h2><div class="alert alert-danger"><%= messages.errors%></div></h2>
+                <% }) %>    
+            <% } %>
+        </div>
+
+
+
+
 
     <ul class="tabs">
         <li data-tab-target="#home" id="left" class="active tab">Watch List</li>
@@ -38,7 +57,8 @@
       </ul>
 
 
-
+ 
+    
 
 
 
@@ -94,25 +114,6 @@
 </div>  
 
      
-<div class="formInputs">
-    <!-- <h1><%= user.userName %> has <%= left %> items in watch list.</h1> -->
-        
-     <!-- //flash alert for failed query request -->
-     
-
-        <% if (messages.errors) { %>
-            <% messages.errors.forEach( el => { %>
-                <h2><div class="alert alert-danger"><%= messages.errors%></div></h2>
-            <% }) %>    
-        <% } %>
-
-        <form class="formInput" autocomplete="off" action="/movies/createMovie" method='POST'>
-            <div class="autocomplete" >
-            <input id="myInput" type="text" name="movieItem" placeholder="Search for a movie or show">
-            <button id="submitButton" type="submit"><i class="fa fa-search"></i></button>
-            </div>
-        </form>
-    </div>
 
 
 
