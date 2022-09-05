@@ -350,7 +350,9 @@ login.ejs  styles
     left: 20px;
     font-size: 22px;
     color: rgb(87, 121, 255);
-
+}
+.watchedMovie:hover {
+    color: rgb(124, 194, 255);
 }
 .liked{
     position: absolute;
@@ -358,9 +360,11 @@ login.ejs  styles
     left: 60px;
     font-size: 22px;
     color: rgb(87, 121, 255);
-
-
 }
+.liked:hover {
+    color: rgb(124, 194, 255);
+}
+
 
 .del {
     position: absolute;
@@ -369,8 +373,13 @@ login.ejs  styles
     font-size: 22px;
     color: rgb(87, 121, 255);
     opacity: 100%;
-
 }
+.del:hover {
+    color: rgb(124, 194, 255);
+    
+}
+
+
 .icon-background {
     opacity: 0%;
     position: absolute;
@@ -387,8 +396,9 @@ login.ejs  styles
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 130px;
-    height: 190px;
+    width: 128px;
+    height: 192px;
+    border-radius: .25rem;
 }
 .movie-image {
     border-radius: .25rem;
@@ -396,24 +406,17 @@ login.ejs  styles
 .movie-image:hover {
     opacity: 50%;
 }
-.formInputs {
-    position:relative;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%; 
-}
+
 
 #myInput{
-    
-    width: 89%;
+    text-align: center; 
+    width: 80%;
+    margin-left: 10%;
 }
 #submitButton{
     border: 2px solid white;
     background-color: rgb(255, 255, 255);
-    width:10%;
+
 }
 
 
@@ -459,7 +462,13 @@ login.ejs  styles
     background-color:rgb(9, 32, 44);
   }
   
-
+  .autocomplete {
+    background-color: white;
+    width: 80%;
+    text-align: center;
+ 
+    
+  }
 
 
 
