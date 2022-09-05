@@ -1,7 +1,8 @@
 const deleteBtn = document.querySelectorAll('.del')
 const watchedBtn = document.querySelectorAll('.watchedMovie')
 const unWatchedBtn = document.querySelectorAll('.unWatchedMovie')
-const recommendBtn = document.querySelectorAll('.liked')
+const recommendBtn = document.querySelectorAll('.like')
+const unRecommendBtn = document.querySelectorAll('.unlike')
 
 // const movieItem = document.querySelectorAll('span.not')
 // const movieWatched = document.querySelectorAll('span.watched')
@@ -20,6 +21,10 @@ Array.from(unWatchedBtn).forEach((el)=>{
 
 Array.from(recommendBtn).forEach((el)=>{
     el.addEventListener('click', recommendMovie)
+})
+
+Array.from(unRecommendBtn).forEach((el)=>{
+    el.addEventListener('click', unRecommendMovie)
 })
 
 // Array.from(movieItem).forEach((el)=>{
@@ -79,6 +84,7 @@ async function markWatched(){
         })
         const data = await response.json()
         console.log(data)
+        sessionStorage.setItem('wachedTabActive', false)
         location.reload()
     }catch(err){
         console.log(err)
@@ -97,6 +103,7 @@ async function markUnWatched(){
         })
         const data = await response.json()
         console.log(data)
+        sessionStorage.setItem('wachedTabActive', true)
         location.reload()
     }catch(err){
         console.log(err)
@@ -116,6 +123,27 @@ async function recommendMovie(){
         })
         const data = await response.json()
         console.log(data)
+        sessionStorage.setItem('wachedTabActive', true)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}
+
+async function unRecommendMovie(){
+    //console.log('recommend clicked')
+    const movieId = this.parentNode.dataset.id
+    try{
+        const response = await fetch('movies/unRecommendMovie', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'movieIdFromJSFile': movieId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        sessionStorage.setItem('wachedTabActive', true)
         location.reload()
     }catch(err){
         console.log(err)

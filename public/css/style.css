@@ -352,17 +352,37 @@ login.ejs  styles
     color: rgb(87, 121, 255);
 }
 .watchedMovie:hover {
-    color: rgb(124, 194, 255);
+  color: rgb(124, 194, 255);
 }
-.liked{
+.unWatchedMovie {
+  position: absolute;
+  bottom:10px;
+  left: 20px;
+  font-size: 22px;
+  color: rgb(255, 87, 87);
+}
+.unWatchedMovie:hover {
+  color: rgb(255, 121, 121);
+}
+.like{
     position: absolute;
     bottom:10px;
-    left: 60px;
+    left: 55px;
     font-size: 22px;
     color: rgb(87, 121, 255);
 }
-.liked:hover {
-    color: rgb(124, 194, 255);
+.like:hover {
+  color: rgb(124, 194, 255);
+}
+.unlike{
+  position: absolute;
+  bottom:10px;
+  left: 54px;
+  font-size: 22px;
+  color: rgb(255, 161, 19);
+}
+.unlike:hover {
+    color: rgb(255, 88, 88);
 }
 
 
@@ -391,7 +411,7 @@ login.ejs  styles
 
 .icon-background:hover {
    opacity: 100%;
-   background: rgba(255, 255, 255, 0.7);
+   background: rgba(230, 230, 230, 0.8);
    box-shadow: 0 0 10px #9ecaed;
     position: absolute;
     top: 0px;

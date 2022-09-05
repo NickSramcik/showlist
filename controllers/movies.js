@@ -108,11 +108,22 @@ module.exports = {
     // },
     recommendMovie: async (req, res)=>{
         try{
-            await Movie.updateOne({_id:req.body.movieIdFromJSFile}, {
+            await Movie.findOneAndUpdate({_id:req.body.movieIdFromJSFile}, {
                 recommend: true
             })
             console.log('Recommended Movie')
             res.json('Recommended Movie')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    unRecommendMovie: async (req, res)=>{
+        try{
+            await Movie.findOneAndUpdate({_id:req.body.movieIdFromJSFile}, {
+                recommend: false
+            })
+            console.log('Un-recommended Movie')
+            res.json('Un-recommended Movie')
         }catch(err){
             console.log(err)
         }
