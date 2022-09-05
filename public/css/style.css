@@ -408,16 +408,6 @@ login.ejs  styles
 }
 
 
-#myInput{
-    text-align: center; 
-    width: 80%;
-    margin-left: 10%;
-}
-#submitButton{
-    border: 2px solid white;
-    background-color: rgb(255, 255, 255);
-
-}
 
 
 [data-tab-content] {
@@ -431,54 +421,106 @@ login.ejs  styles
   }
   
   body {
+    min-width: 500px;
     padding: 0;
     margin: 0;
   }
   
   .tabs {
+    margin-top: 20px;
+    padding-top: 10px;
+    background-color:#09202c;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .25rem;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px solid black;
+
   }
   
   .tab {
+    text-align: center;
     cursor: pointer;
-    padding: 10px;
+    padding: 8px;
+    width: 10%;
+    min-width: 80px;
+    background-color: rgba(1, 52, 1, 0.9);
+    border: 1px solid rgba(181, 180, 180, 0.1);
+    
+    
   }
   
   .tab.active {
-    background-color: rgb(4, 61, 29);
+    opacity: 100%;
+    width: 15%;
+    background-color: rgba(0, 90, 0, .9);
+
   }
+  #left {
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    border: 1px solid rgba(181, 180, 180, 0.1);
+  }
+  #left.active {
+  
+    border-left:1px solid rgba(255, 255, 255, 0.9); 
+    border-right:1px solid rgba(198, 196, 196, 0.9); 
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+    border-bottom:1px solid rgba(255, 255, 255, 0.9);
+  }
+  #right {
+    border-bottom-right-radius: 3rem;
+    border-top-right-radius: 3rem;
+  }
+  #right.active {
+    border-left:1px solid rgba(140, 140, 140, 0.9); 
+    border-right:1px solid rgba(255, 255, 255, 0.9); 
+    border-top: 1px solid rgba(255, 255, 255, 0.9);
+    border-bottom:1px solid rgba(255, 255, 255, 0.9);
+  }
+
   
   .tab:hover {
     background-color: rgb(50, 251, 157);
   }
   
   .tab-content {
-    margin-top: 10px;
+    
     background-color:rgb(9, 32, 44);
   }
-  
-  .autocomplete {
-    background-color: white;
+  #myInput{
+    text-align: center; 
+    height: 26px;
     width: 80%;
+    border: 2px solid rgba(43, 106, 3, 0.443);
+    border-radius: .25rem;
+    }
+    #myinput:active{
+        background-color: red;
+    }
+  #submitButton{
+    border: 2px solid white;
+    background-color: rgb(255, 255, 255);
+    font-size: 22px;
+    border-radius: .25rem;
+    width: 50px;
+    }
+  .autocomplete {
+    
+    
     text-align: center;
+    
  
   }
   #myInputautocomplete-list{
     background-color: rgb(255, 255, 255);
-    height: 100%;
     width: 80%;
-    margin-left: 10%;    
+    margin-left: 8%;
+    color: black;
   }
 
-  .autocomplete-items{
-    height: 100%;
-    background-color: red;
-}
 
 
 
