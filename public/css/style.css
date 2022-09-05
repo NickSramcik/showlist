@@ -467,8 +467,18 @@ login.ejs  styles
     width: 80%;
     text-align: center;
  
-    
   }
+  #myInputautocomplete-list{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 80%;
+    margin-left: 10%;    
+  }
+
+  .autocomplete-items{
+    height: 100%;
+    background-color: red;
+}
 
 
 
