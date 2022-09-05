@@ -22,10 +22,7 @@
         </a>
 
 
-        <ul class="tabs">
-            <li data-tab-target="#home" class="active tab">Home</li>
-            <li data-tab-target="#watched" class="tab">Already Watched</li>
-          </ul>
+      
 
 
         <h1>
@@ -34,6 +31,16 @@
         
         <a class="logout" href="/logout">Logout</a>
     </nav>
+
+    <ul class="tabs">
+        <li data-tab-target="#home" id="left" class="active tab">Watch List</li>
+        <li data-tab-target="#watched" id = "right" class="tab">Seen List</li>
+      </ul>
+
+
+
+
+
 
    <div class="tab-content">
   <div id="home" data-tab-content class="active">
@@ -99,11 +106,10 @@
             <% }) %>    
         <% } %>
 
-        <form autocomplete="off" action="/movies/createMovie" method='POST'>
-            
+        <form class="formInput" autocomplete="off" action="/movies/createMovie" method='POST'>
+            <div class="autocomplete" >
             <input id="myInput" type="text" name="movieItem" placeholder="Search for a movie or show">
             <button id="submitButton" type="submit"><i class="fa fa-search"></i></button>
-            <div class="autocomplete" >
             </div>
         </form>
     </div>
