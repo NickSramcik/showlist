@@ -569,7 +569,7 @@ login.ejs  styles
 #reclist {
   display: grid;
   grid-auto-flow: column;
-  height: 200px;
+  height: 250px;
   gap: 15px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
