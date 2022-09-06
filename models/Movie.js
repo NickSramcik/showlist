@@ -32,6 +32,10 @@ const MovieSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  movieInfo: {
+    type:String, 
+    require: false
   }
 })
 

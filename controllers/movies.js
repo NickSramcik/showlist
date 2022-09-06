@@ -21,6 +21,7 @@ module.exports = {
     },
     createMovie: async (req, res)=>{
         try{
+            
             let search = req.body.movieItem.replace(" ", "+")
             const url = `https://api.themoviedb.org/3/search/multi?api_key=9ac0eb557b1857810d37cbef8fd0557b&query=${search}`
             //pass request of user input to the movie api to get title and image from api
@@ -28,11 +29,12 @@ module.exports = {
                 .then(res => res.json()) // parse response as JSON
                 .then(data => { 
                     //console.log(data.results[0].media_type)
-                    //console.log(data)
+                    console.log(data)
                     if( data.results[0].media_type != "person"){
                         movieTitle = data.results[0].name || data.results[0].title
                         console.log(movieTitle)
                         image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
+                        movieDetails = data.results[0].overview 
                         if (image.length <42) {image = "assets/placeholder.jpg"}}
                     else{movieTitle = ""}
                      
@@ -41,8 +43,37 @@ module.exports = {
                     console.log(`error out possible bad search query? ${err}`)
                     movieTitle = ""
                 })
+
+
+            search = req.body.movieItem.replace(" ", "+")
+            url = `https://api.themoviedb.org/3/search/multi?api_key=9ac0eb557b1857810d37cbef8fd0557b&query=${search}`
+            //pass request of user input to the movie api to get title and image from api
+            await fetch(url)
+                .then(res => res.json()) // parse response as JSON
+                .then(data => { 
+                    //console.log(data.results[0].media_type)
+                    console.log(data)
+                    if( data.results[0].media_type != "person"){
+                        movieTitle = data.results[0].name || data.results[0].title
+                        console.log(movieTitle)
+                        image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
+                        movieDetails = data.results[0].overview 
+                        if (image.length <42) {image = "assets/placeholder.jpg"}}
+                    else{movieTitle = ""}
+                     
+                })
+                .catch(err => {
+                    console.log(`error out possible bad search query? ${err}`)
+                    movieTitle = ""
+                })
+
+
+
+
+
+
                 //if movietitle was found in the api add it to the list 
-                console.log(movieTitle.toLowerCase())  
+                console.log(movieDetails)  
                 if (movieTitle.length < req.body.movieItem.length + 3 && movieTitle.length > req.body.movieItem.length - 3){
                     await Movie.create({
                         movie: req.body.movieItem, 
@@ -51,7 +82,8 @@ module.exports = {
                         title: movieTitle, 
                         image: image, 
                         deleted: false,
-                        userId: req.user.id
+                        userId: req.user.id,
+                        movieInfo: movieDetails
                     })
                         console.log('Movie has been added!')
                         res.redirect('/movies')

@@ -408,6 +408,14 @@ login.ejs  styles
     width: 120px;
     height: 180px;
 }
+.icon-background2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 120px;
+  height: 140px;
+
+}
 
 .icon-background:hover {
    opacity: 100%;
@@ -476,8 +484,6 @@ login.ejs  styles
     opacity: 100%;
     width: 10%;
     background-color: rgba(0, 90, 0, .9);
- 
-
   }
   #left {
     border-top-left-radius: 3rem;
@@ -554,9 +560,28 @@ login.ejs  styles
    
   }
 
+  .popInfo {
+    visibility: hidden;
+    padding: 20px;
+    position: absolute;
+    z-index: 10;
+    top: 10%;
+    left: 10%;
+    width: 70vw;
+    height: 70vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    border-radius: 2rem;
+    border: 2px solid white;
+    font-size: 20px;
+    color: limegreen;
 
+  }
 
-
+.s6316d428c9085e369cc981cf {
+  color:red; 
+}
 
 
 

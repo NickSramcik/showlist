@@ -21,7 +21,7 @@
             <img class='logo' src='assets/best-buds-logo.png' alt='movie-guide-logo'/>
         </a>
 
-        <h1>
+        <h1 class="tester">
             <%= user.userName %>'s Watch list
         </h1>
         
@@ -55,24 +55,43 @@
         <li data-tab-target='#home' id='left' class='active tab'>Watch List</li>
         <li data-tab-target='#watched' id = 'right' class='tab'>Seen List</li>
       </ul>
+   
 
+      
 
- 
 
    <div class='tab-content'>
         <div id='home' data-tab-content class='active'>
 
     <div class='gallery-container movielist'>
             <% movies.forEach( el => { %>
+                
                 <%if (el.watched === false) {%>
+                    
+                    <div class="popInfo  a<%=el._id%>"  data-id='<%=el._id%>'> 
+                        <span class='exit fa fa-circle-xmark a<%=el._id%>' data-id='<%=el._id%>'></span>
+                        <img class='movie-image' src='<%=el.image%>' alt=''poster image' width='128' >
+                        <span class='not'><%= el.title %></br></span>
+                        <span class='not'><%=el.movieInfo %> </span>
+    
+                       </div>
+                      
                     <div class='movie-card'>
+                       
                         <li class='movieItem' data-id='<%=el._id%>'>
+
+                       
+
                             <img class='movie-image' src='<%=el.image%>' alt=''poster image' width='128' >
                             <!-- <span class='not'><%= el.title %></br></span> -->
                             <div class='icon-background' data-id='<%=el._id%>'>
+                             
                             <span title='Mark Watched' class='watchedMovie fa fa-binoculars'></span>
                             <!-- <span title='Recommend to Others' class='liked fa fa-arrow-up'></span> -->
                             <span title='Remove from List' class='del fa fa-circle-xmark'></span>
+                            <div class="icon-background2" data-id='<%=el._id%>'  >
+                             
+                            </div>
                             </div>
                             
                         </li> 
