@@ -21,6 +21,10 @@ module.exports = {
     },
     createMovie: async (req, res)=>{
         try{
+            const movieItems = await Movie.find({
+                userId : req.user.id,
+                deleted: false,
+            })
             let search = req.body.movieItem.replace(" ", "+")
             const url = `https://api.themoviedb.org/3/search/multi?api_key=9ac0eb557b1857810d37cbef8fd0557b&query=${search}`
             //pass request of user input to the movie api to get title and image from api
@@ -41,20 +45,40 @@ module.exports = {
                     console.log(`error out possible bad search query? ${err}`)
                     movieTitle = ""
                 })
+                
+                // console.log(movieTitle.toLowerCase())
+                // console.log(movieItems)
+                
                 //if movietitle was found in the api add it to the list 
-                console.log(movieTitle.toLowerCase())  
                 if (movieTitle.length < req.body.movieItem.length + 3 && movieTitle.length > req.body.movieItem.length - 3){
-                    await Movie.create({
-                        movie: req.body.movieItem, 
-                        watched: false, 
-                        recommend: false, 
-                        title: movieTitle, 
-                        image: image, 
-                        deleted: false,
-                        userId: req.user.id
-                    })
-                        console.log('Movie has been added!')
-                        res.redirect('/movies')
+                    //check if title is already in watchlist
+                    let duplicates = movieItems.filter(el => el.movie.toLowerCase() === movieTitle.toLowerCase())
+                    if (duplicates.length) {
+                        console.log(`duplicates is: ${duplicates[0].watched}`)
+                        if (duplicates[0].watched) {
+                            console.log(`You've already watched ${req.body.movieItem}. Go to your 'Seen List' and mark 'Unwatched' to move this title back to your watch list`)
+                            req.flash("errors", `You've already watched ${req.body.movieItem}. Go to your 'Seen List' and mark 'Unwatched' to move this title back to your watch list`)
+                            res.redirect('/movies')
+                        } else {
+                            console.log(`${req.body.movieItem} is already in your watch list!`)
+                            req.flash("errors", `${req.body.movieItem} is already in your watch list`)
+                            res.redirect('/movies')
+                        }
+                        
+                    } else {
+
+                        await Movie.create({
+                            movie: req.body.movieItem, 
+                            watched: false, 
+                            recommend: false, 
+                            title: movieTitle, 
+                            image: image, 
+                            deleted: false,
+                            userId: req.user.id
+                        })
+                            console.log('Movie has been added!')
+                            res.redirect('/movies')
+                    }  
                 }
                 //if the movie title was not found in the database send a flash error to the user letting them know.
                 else{   
@@ -68,10 +92,6 @@ module.exports = {
             console.log(err)
         }
     },
-
-
-
-
 
     markWatched: async (req, res)=>{
         try{
