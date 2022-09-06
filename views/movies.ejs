@@ -88,6 +88,12 @@
                              
                             <span title='Mark Watched' class='watchedMovie fa fa-binoculars'></span>
                             <!-- <span title='Recommend to Others' class='liked fa fa-arrow-up'></span> -->
+                            <%if (el.recommend === false) {%>
+                                <span title='Recommend to Others' class='like fa fa-star'></span>
+                            <%}%>
+                            <%if (el.recommend === true) {%>
+                                <span title='Un-recommend to Others' class='unlike fa fa-star'></span>
+                            <%}%>
                             <span title='Remove from List' class='del fa fa-circle-xmark'></span>
                             <div class="icon-background2" data-id='<%=el._id%>'  >
                              
