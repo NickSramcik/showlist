@@ -110,6 +110,33 @@
 </div> 
 
 
+<div class="recommendTitle">
+    <h1> User Recommended</h1>
+ </div>
+ 
+    <div id="reclist">
+              <% dbMovies.forEach( el => { %>
+            
+                          <div class='movie-cardrec' data-id='<%=el._id%>'>
+                              <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
+                              need to add ADD to watchlist button
+                              
+                              <!-- <span class='not'><%= el.title %></br></span> -->
+                              <!-- <div class="icon-background" data-id='<%=el._id%>'>
+                              <span class='watchedMovie fa fa-binoculars'></span>
+                              <span class="liked fa fa-arrow-up"></span>
+                              <span class='del fa fa-circle-xmark'></span> -->
+                      
+                              
+                          </div> 
+                     
+                 
+                  
+              <% }) %>    
+       
+      </div>
+
+
 
 </div>  
 
