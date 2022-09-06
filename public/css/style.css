@@ -395,7 +395,7 @@ login.ejs  styles
     opacity: 100%;
 }
 .del:hover {
-    color: rgb(124, 194, 255);
+    color: rgb(124, 255, 141);
     
 }
 
@@ -463,8 +463,8 @@ login.ejs  styles
   .tab {
     text-align: center;
     cursor: pointer;
-    padding: 8px;
-    width: 10%;
+    padding: 12px;
+    width: 8%;
     min-width: 80px;
     background-color: rgba(1, 52, 1, 0.9);
     border: 1px solid rgba(181, 180, 180, 0.1);
@@ -474,14 +474,15 @@ login.ejs  styles
   
   .tab.active {
     opacity: 100%;
-    width: 15%;
+    width: 10%;
     background-color: rgba(0, 90, 0, .9);
+ 
 
   }
   #left {
     border-top-left-radius: 3rem;
     border-bottom-left-radius: 3rem;
-    border: 1px solid rgba(181, 180, 180, 0.1);
+    border: 1px solid rgba(181, 180, 180, 0.5);
   }
   #left.active {
   
@@ -493,6 +494,7 @@ login.ejs  styles
   #right {
     border-bottom-right-radius: 3rem;
     border-top-right-radius: 3rem;
+    border: 1px solid rgba(181, 180, 180, 0.5);
   }
   #right.active {
     border-left:1px solid rgba(140, 140, 140, 0.9); 
@@ -510,11 +512,17 @@ login.ejs  styles
     
     background-color:rgb(9, 32, 44);
   }
+
+
+  /* formstuff */
+  .formInput{
+    width: 80%;
+    margin-left: 10%;
+  }
   #myInput{
     margin-top: 8px;
     text-align: center; 
-    height: 26px;
-    width: 80%;
+    width:80%;
     border: 2px solid rgba(43, 106, 3, 0.443);
     border-radius: .25rem;
     font-size: 24px;
@@ -529,17 +537,13 @@ login.ejs  styles
     border-radius: .25rem;
     width: 50px;
     }
-  .autocomplete { 
-    
-    
-    text-align: center;
-    
- 
-  }
+  
+
+
+
   #myInputautocomplete-list{
     background-color: rgb(255, 255, 255);
     width: 80%;
-    margin-left: 8%;
     color: black;
   }
   #auto-item{
