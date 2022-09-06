@@ -3,9 +3,12 @@ const watchedBtn = document.querySelectorAll('.watchedMovie')
 const unWatchedBtn = document.querySelectorAll('.unWatchedMovie')
 const recommendBtn = document.querySelectorAll('.like')
 const unRecommendBtn = document.querySelectorAll('.unlike')
-
+const popoutInfo = document.querySelectorAll('.icon-background2')
+const exiter = document.querySelectorAll('.exit')
 // const movieItem = document.querySelectorAll('span.not')
 // const movieWatched = document.querySelectorAll('span.watched')
+
+
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteMovie)
@@ -27,6 +30,12 @@ Array.from(unRecommendBtn).forEach((el)=>{
     el.addEventListener('click', unRecommendMovie)
 })
 
+Array.from(popoutInfo).forEach((el)=>{
+    el.addEventListener('click', popoutDetails)
+})
+Array.from(exiter).forEach((el)=>{
+    el.addEventListener('click', exits)
+})
 // Array.from(movieItem).forEach((el)=>{
 //     el.addEventListener('click', markWatched)
 // })
@@ -52,6 +61,19 @@ tabs.forEach(tab => {
     target.classList.add('active')
   })
 })
+
+function popoutDetails(click){
+    let classId = `${this.dataset.id}`
+    document.querySelector(`.a${classId}`).style.visibility = "visible";
+ 
+}
+
+function exits(click){
+    let classId = `.a${this.dataset.id}`
+    console.log(classId)
+    document.querySelector(`${classId}`).style.visibility = "hidden";
+}
+
 
 
 async function deleteMovie(){
