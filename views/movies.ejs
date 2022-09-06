@@ -112,41 +112,30 @@
 
 
 <div class="recommendTitle">
-    <h1> User Recommended</h1>
+    <h1>Most Recommended</h1>
  </div>
- 
-    <div id="reclist">
-              <% dbMovies.forEach( el => { %>
-            
-                          <div class='movie-cardrec' data-id='<%=el._id%>'>
-                              <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
-                              
-                              
-                              <!-- <span class='not'><%= el.title %></br></span> -->
-                              <!-- <div class="icon-background" data-id='<%=el._id%>'>
-                              <span class='watchedMovie fa fa-binoculars'></span>
-                              <span class="liked fa fa-arrow-up"></span>
-                              <span class='del fa fa-circle-xmark'></span> -->
-                      
-                              
-                          </div> 
-                     
-                 
-                  
-              <% }) %>    
-       
-      </div>
+ <div id="reclist">
+    <% dbMovies.forEach( el => { %>
+        <div class='movie-cardrec' data-id='<%=el._id%>'>
+            <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
+        </div>  
+    <% }) %>    
+</div>
 
+      
 
+<div class="watchTitle">
+    <h1>Most Watched</h1>
+</div>
+<div id="watchlist">
+    <% dbMovies.forEach( el => { %>
+        <div class='movie-cardwatch' data-id='<%=el._id%>'>
+            <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
+        </div> 
+    <% }) %>    
+</div>
 
 </div>  
-
-     
-
-
-    
-       
-
 
 
 
