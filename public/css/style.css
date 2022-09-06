@@ -516,7 +516,6 @@ login.ejs  styles
 
   /* formstuff */
   .formInput{
-    width: 100%;
     margin-left: 10%;
   }
   #myInput{
