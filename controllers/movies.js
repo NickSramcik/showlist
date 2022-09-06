@@ -24,7 +24,6 @@ module.exports = {
             const movieItems = await Movie.find({
                 userId : req.user.id,
                 deleted: false,
-                watched: false,
             })
             let search = req.body.movieItem.replace(" ", "+")
             const url = `https://api.themoviedb.org/3/search/multi?api_key=9ac0eb557b1857810d37cbef8fd0557b&query=${search}`
@@ -55,9 +54,17 @@ module.exports = {
                     //check if title is already in watchlist
                     let duplicates = movieItems.filter(el => el.movie.toLowerCase() === movieTitle.toLowerCase())
                     if (duplicates.length) {
-                        console.log(` ${req.body.movieItem} is already in your watch list!`)
-                        req.flash("errors", `${req.body.movieItem} is already in your watch list`)
-                        res.redirect('/movies')
+                        console.log(`duplicates is: ${duplicates[0].watched}`)
+                        if (duplicates[0].watched) {
+                            console.log(`You've already watched ${req.body.movieItem}. Go to your 'Seen List' and mark 'Unwatched' to move this title back to your watch list`)
+                            req.flash("errors", `You've already watched ${req.body.movieItem}. Go to your 'Seen List' and mark 'Unwatched' to move this title back to your watch list`)
+                            res.redirect('/movies')
+                        } else {
+                            console.log(`${req.body.movieItem} is already in your watch list!`)
+                            req.flash("errors", `${req.body.movieItem} is already in your watch list`)
+                            res.redirect('/movies')
+                        }
+                        
                     } else {
 
                         await Movie.create({
