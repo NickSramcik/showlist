@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- reset and normalize -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>BestBuds TV-Movie Guide</title>
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+
+    <section class="index-top">
+      <div class="index-description">
+        <div class="title-wrapper">
+          <div class="title-container">
+            <h1>STATS</h1>
+          </div>
+        </div>
+        <h3 class="best-buds-description">
+          <p>Come watch with us <i>tonight</i></p>
+          <u>TV Shows and Movies</u>
+          <p>Movies Rated: <%= countUnique %></p>
+        </h3>
+        <div class="button-container">
+          <a class="login btn" href="/login"> Login</a>
+          <a class="signup btn" href="/signup"> Signup</a>
+        </div>
+      </div>
+      <!-- <div class="index-pic">
+            <img src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80" />
+        </div> -->
+    </section>
+
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>
