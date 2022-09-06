@@ -528,14 +528,28 @@ login.ejs  styles
     background-color: #09202c;
 }
 .recommendTitle h1 {
-    margin-top: 100px;
+    width: 100vw;
+    margin-top: 70px;
     background-color: rgb(0, 107, 78);
-    font-size: 40px;
+    font-size: 26px;
     text-align: center;
 }
 
-
-
+#reclist {
+  display: grid;
+  grid-auto-flow: column;
+  height: 200px;
+  gap: 15px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  background-color:#09202c;
+  
+  
+}
+.movie-cardrec{
+padding: 20px;
+width: 128px;
+}
 
 
 
@@ -564,7 +578,7 @@ login.ejs  styles
       font-size: 1.3rem;
     }
     
-  }
+  
 
 
 /* * {

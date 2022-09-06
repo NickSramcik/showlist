@@ -28,6 +28,18 @@
         <a class="logout" href="/logout">Logout</a>
     </nav>
     
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="formInputs">
         <!-- <h1><%= user.userName %> has <%= left %> items in watch list.</h1> -->
             
@@ -107,51 +119,43 @@
     </div> 
 </div> 
 
-
-
 </div>  
+
+
+
+
+
+ 
+
+        
 <div class="recommendTitle">
-   <h1> User Recommended</h1>
-</div>
+    <h1> User Recommended</h1>
+ </div>
+ 
 
-    <div class="recommend gallery-container movielist">  
-       <% movies.forEach( el => { %>
-            <%if (el.recommend === true) {%>
-                <div class='movie-card' data-id='<%=el._id%>'>
-                <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
-                    <span class='watched'><%= el.movie %></span>
-                    <span class='unWatchedMovie'> Mark unwatched </span>
-                    <span class='recommend'> Recommend? </span>
-                 </div> 
-            <%}%>       
-        <% }) %>    
+    <div id="reclist">
 
- </div>    
-
-
- <div class="tab-content">
-    <div id="home" data-tab-content class="active">
-    <div class="gallery-container movielist">
               <% dbMovies.forEach( el => { %>
-                  <%if (el.watched === false) {%>
-                      <div class="movie-card">
-                          <li class='movieItem' data-id='<%=el._id%>'>
+            
+                          <div class='movie-cardrec' data-id='<%=el._id%>'>
                               <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
+                              need to add ADD to watchlist button
+                              
                               <!-- <span class='not'><%= el.title %></br></span> -->
-                              <div class="icon-background" data-id='<%=el._id%>'>
+                              <!-- <div class="icon-background" data-id='<%=el._id%>'>
                               <span class='watchedMovie fa fa-binoculars'></span>
                               <span class="liked fa fa-arrow-up"></span>
-                              <span class='del fa fa-circle-xmark'></span>
-                              </div>
+                              <span class='del fa fa-circle-xmark'></span> -->
+                      
                               
-                          </li> 
-                      </div>
-                  <%}%>    
+                          </div> 
+                     
+                 
                   
               <% }) %>    
        
       </div>
-     </div>  
+
     
        
 
