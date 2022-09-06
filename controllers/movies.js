@@ -45,27 +45,7 @@ module.exports = {
                 })
 
 
-            search = req.body.movieItem.replace(" ", "+")
-            url = `https://api.themoviedb.org/3/search/multi?api_key=9ac0eb557b1857810d37cbef8fd0557b&query=${search}`
-            //pass request of user input to the movie api to get title and image from api
-            await fetch(url)
-                .then(res => res.json()) // parse response as JSON
-                .then(data => { 
-                    //console.log(data.results[0].media_type)
-                    console.log(data)
-                    if( data.results[0].media_type != "person"){
-                        movieTitle = data.results[0].name || data.results[0].title
-                        console.log(movieTitle)
-                        image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
-                        movieDetails = data.results[0].overview 
-                        if (image.length <42) {image = "assets/placeholder.jpg"}}
-                    else{movieTitle = ""}
-                     
-                })
-                .catch(err => {
-                    console.log(`error out possible bad search query? ${err}`)
-                    movieTitle = ""
-                })
+          
 
 
 
