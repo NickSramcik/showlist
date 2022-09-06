@@ -46,9 +46,11 @@ module.exports = {
                     console.log(`error out possible bad search query? ${err}`)
                     movieTitle = ""
                 })
-                //if movietitle was found in the api add it to the list 
+                
                 // console.log(movieTitle.toLowerCase())
-                // console.log(movieItems)  
+                // console.log(movieItems)
+                
+                //if movietitle was found in the api add it to the list 
                 if (movieTitle.length < req.body.movieItem.length + 3 && movieTitle.length > req.body.movieItem.length - 3){
                     //check if title is already in watchlist
                     let duplicates = movieItems.filter(el => el.movie.toLowerCase() === movieTitle.toLowerCase())
@@ -83,10 +85,6 @@ module.exports = {
             console.log(err)
         }
     },
-
-
-
-
 
     markWatched: async (req, res)=>{
         try{
