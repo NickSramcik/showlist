@@ -14,7 +14,10 @@ module.exports = {
                 watched: false,
                 deleted: false,
             })
-            res.render('movies.ejs', {movies: movieItems, left: moviesLeft, user: req.user})
+            const moviesDB = await Movie.find({
+                recommend: true,
+            })
+            res.render('movies.ejs', {movies: movieItems, dbMovies: moviesDB, left: moviesLeft, user: req.user})
         }catch(err){
             console.log(err)
         }
