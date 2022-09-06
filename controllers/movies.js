@@ -35,6 +35,7 @@ module.exports = {
                         console.log(movieTitle)
                         image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
                         movieDetails = data.results[0].overview 
+                        apiID = data.results[0].id
                         if (image.length <42) {image = "assets/placeholder.jpg"}}
                     else{movieTitle = ""}
                      
@@ -45,21 +46,20 @@ module.exports = {
                 })
 
 
-            search = req.body.movieItem.replace(" ", "+")
-            url = `https://api.themoviedb.org/3/search/multi?api_key=9ac0eb557b1857810d37cbef8fd0557b&query=${search}`
-            //pass request of user input to the movie api to get title and image from api
-            await fetch(url)
+            let search2 = req.body.movieItem.replace(" ", "+")
+            if (data.result[0].media_type = "movie"){
+            let url2 = `https://api.themoviedb.org/3/movie/${apiID}watch/providers?api_key=9ac0eb557b1857810d37cbef8fd0557b`
+            }else{
+            let url2 = `https://api.themoviedb.org/3/tv/${apiID}watch/providers?api_key=9ac0eb557b1857810d37cbef8fd0557b`
+                
+            }
+                       
+                       //grab more indepth details
+            await fetch(url2)
                 .then(res => res.json()) // parse response as JSON
                 .then(data => { 
                     //console.log(data.results[0].media_type)
-                    console.log(data)
-                    if( data.results[0].media_type != "person"){
-                        movieTitle = data.results[0].name || data.results[0].title
-                        console.log(movieTitle)
-                        image = `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`
-                        movieDetails = data.results[0].overview 
-                        if (image.length <42) {image = "assets/placeholder.jpg"}}
-                    else{movieTitle = ""}
+                details = data.results[0]. 
                      
                 })
                 .catch(err => {
