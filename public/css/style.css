@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap");
 
 :root {
   --main-bg-color: #f3f3f3;
+  --main-card-color: #ffffff;
   --main-text-color: #2f3e46;
   --main-highlight-color: #84a98c;
 
@@ -17,14 +19,14 @@
   --color-3: #f1b211;
   --color-4: #e07a5f;
   --color-5: #81b29a;
+
+  display: flexbox;
 }
 
 body {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  width: 100%;
-  height: 100%;
-  font-family: "Nunito", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .completed {
   text-decoration: line-through;
@@ -52,6 +54,11 @@ nav h1 {
   font-size: 1rem;
   font-weight: bold;
 }
+
+#logo {
+  font-family: "Nunito", sans-serif;
+}
+
 nav a:hover {
   color: var(--main-highlight-color);
 }
@@ -99,18 +106,46 @@ section h1 {
   font-size: 3rem;
 }
 .index-top {
-  background-color: #ffffff;
+  background-color: #f3f3f3;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
 .index-description {
-  background-color: var(--main-bg-color);
+  background-color: #ffffff;
 }
 .index-description h3 {
   font-size: 1rem;
 }
 
+.index-description .login-container {
+  padding: 1rem 0;
+}
+
+.index-description .login-container input {
+  width: 100%;
+  height: 2rem;
+  margin: 0.25rem;
+}
+.index-description .login-container button {
+  width: 100%;
+  height: 2rem;
+}
+
+.divider-span {
+  text-transform: capitalize;
+  color: grey;
+}
+
+.index-description .login-container p,
+a {
+  padding-top: 2rem;
+  font-size: large;
+}
+
 /* multi-colored text for the title */
 .title-wrapper {
-  background: var(--main-bg-color);
+  background: var(--main-card-color);
   line-height: 1;
   min-height: 100%;
   display: grid;
@@ -147,7 +182,7 @@ section h1 {
 }
 
 .index-top > div {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,9 +193,9 @@ section div img {
   width: 100%;
   object-fit: cover;
 }
-.best-buds-description {
-  margin: 2rem 0;
-  line-height: 1.8rem;
+.index-top .description {
+  padding-top: 1rem;
+  font-size: 1.3rem;
 }
 section div h3 {
   font-size: 1.3rem;
@@ -431,8 +466,8 @@ login.ejs  styles
 
 body {
   min-width: 500px;
-  padding: 0;
-  margin: 0;
+  /* This fixes it */
+  /* background-color: #ffffff; */
 }
 
 .tabs {

@@ -1,114 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- reset and normalize -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <title>BestBuds TV-Movie Guide</title>
-</head>
-<body>
-    <%- include('partials/navbar.ejs') %>
-
-    
+  </head>
+  <body>
     <section class="index-top">
-        <div class="index-description">
-            <div class="title-wrapper">
-                <div class="title-container">
-                    <h1>Your Movie Guide</h1>
-                </div>
-            </div>
-            <h3 class="best-buds-description">Find it hard to <u>keep track</u> of all the <u>TV Shows and Movies</u> that your friends are watching and recommending? Stay up to date here! Login or Signup to keep your own list and see what others are also watching. It's free!</h3>
-            <div class="button-container">
-                <a class='login btn' href="/login"> Login</a>
-                <a class='signup btn' href="/signup"> Signup</a>
-            </div>
+      <div class="index-description">
+        <div class="title-wrapper">
+          <div class="title-container">
+            <h1 id="logo">Moviesquad</h1>
+          </div>
         </div>
-        <!-- <div class="index-pic">
-            <img src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80" />
-        </div> -->
+        <p class="description">
+          Movie nights and watch parties are now seemless for the squad
+        </p>
+        <div class="login-container">
+          <form action="/login" method="POST">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              class="underlined-input"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="underlined-input"
+            />
+            <input type="submit" class="btn full-btn" value="Log in" />
+            <p>
+              Don't have an account?
+              <a href="/signup">Sign up for free!</a>
+            </p>
+          </form>
+        </div>
+      </div>
     </section>
-    
-
-    <!-- trending shows -->
-    <!-- <section class="trending-shows">
-        <h1>Trending</h1>
-        <div>
-            <div class="single-show-container">    
-                <h2>ShowName that Might be long</h2>
-                <h3>Rating: <span>8.3</span></h3>
-                <div class="star-rating">
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="far fa-star"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="single-show-container">    
-                <h2>Name of Show that Might be long</h2>
-                <h3>Rating: <span>8.0</span></h3>
-                <div class="star-rating">
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="far fa-star"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="single-show-container">    
-                <h2>Short</h2>
-                <h3>Rating: <span>7.5</span></h3>
-                <div class="star-rating">
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="fas fa-star"></i>
-                    </span>
-                    <span>
-                        <i class="far fa-star"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-    <%- include('partials/footer.ejs') %>
-
-</body>
+  </body>
 </html>
