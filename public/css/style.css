@@ -36,6 +36,19 @@ body {
   text-decoration: underline;
 }
 
+.card {
+  background-color: var(--main-card-color);
+  width: fit-content;
+  height: fit-content;
+  padding: 5rem;
+  border-radius: 20px;
+}
+
+.card-single {
+  align-self: center;
+  justify-self: center;
+}
+
 /* 
 ===============
 partials --> navbar.ejs  styles
@@ -106,6 +119,7 @@ section h1 {
   font-size: 3rem;
 }
 .index-top {
+  display: flex;
   background-color: #f3f3f3;
   justify-content: center;
   align-items: center;
@@ -270,8 +284,8 @@ login.ejs  styles
 =============== 
 */
 #login-section {
-  width: 100vw;
-  height: calc(100vh - 60px);
+  width: auto;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -309,7 +323,6 @@ login.ejs  styles
   color: var(--main-text-color);
 }
 .underlined-input {
-  background-color: var(--main-bg-color);
   border: none;
   outline: none;
   border-bottom: 1px solid var(--login-hover);
@@ -473,7 +486,6 @@ body {
 .tabs {
   margin-top: 8px;
   padding-top: 5px;
-  background-color: #09202c;
   margin-left: auto;
   margin-right: auto;
   border-radius: 0.25rem;
@@ -584,7 +596,7 @@ body {
   gap: 15px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
-  background-color: #09202c;
+  background-color: var(--main-bg-color);
 }
 .movie-cardrec,
 .movie-cardwatch {

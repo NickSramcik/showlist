@@ -1,56 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- reset and normalize -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- fontawesome stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <title>Signup</title>
-</head>
-<body>
-    <%- include('partials/navbar.ejs') %>
+  </head>
+  <body>
+    <!-- <%- include('partials/navbar.ejs') %> -->
 
+    <div class="index-top">
+      <section id="login-section">
+        <div id="signup-form" class="form-container card card-single">
+          <h1>Glad you're here!</h1>
+          <p>Please enter your details and start sharing.</p>
 
-    
+          <!-- alert and warnings -->
+          <% if (locals.messages.errors) { %> <% messages.errors.forEach( el =>
+          { %>
+          <div class="alert alert-danger"><%= el.msg %></div>
+          <% }) %> <% } %>
 
-    <section id="login-section">
-        <div id="signup-form" class="form-container">
-            <h1>Glad you're here!</h1>
-            <p>Please enter your details and start sharing.</p>
+          <form action="/signup" method="POST">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              class="underlined-input"
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              class="underlined-input"
+            />
+            <input
+              type="text"
+              name="userName"
+              placeholder="User Name"
+              class="underlined-input"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              class="underlined-input"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="underlined-input"
+            />
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              class="underlined-input"
+            />
+            <input type="submit" class="btn full-btn" value="Signup" />
+          </form>
 
-            <!-- alert and warnings -->
-            <% if (locals.messages.errors) { %>
-                <% messages.errors.forEach( el => { %>
-                    <div class="alert alert-danger"><%= el.msg %></div>
-                <% }) %>    
-            <% } %>
-                
-            <form action="/signup" method="POST">
-                <input type="text" name="userName" placeholder="User Name"
-                class="underlined-input">
-                <input type="email" name="email" placeholder="Email" class="underlined-input">
-                <input type="password" name="password" placeholder="Password" class="underlined-input">
-                <input type="password" name="confirmPassword" placeholder="Confirm Password"
-                class="underlined-input">
-                <input type="submit" class="btn full-btn" value="Signup">
-            </form>
-
-            <p>Already have an account? 
-                <a href="/login">Login over here!</a>
-            </p>
+          <p>
+            Already have an account?
+            <a href="/">Login over here!</a>
+          </p>
         </div>
-    </section>
+      </section>
+    </div>
 
-
-    <%- include('partials/footer.ejs') %>
-
-</body>
+    <!-- <%- include('partials/footer.ejs') %> -->
+  </body>
 </html>
