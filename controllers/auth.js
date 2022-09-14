@@ -17,12 +17,6 @@ exports.postLogin = (req, res, next) => {
   // initialize an array to contain the validation errors that occur
   // validate each field, and if the check fails push the message
   const validationErrors = [];
-  if (!validator.isEmpty(req.body.firstName))
-    validationErrors.push({ msg: "Please enter a valid first name." });
-  if (!validator.isEmpty(req.body.lastName))
-    validationErrors.push({ msg: "Please enter a valid last name." });
-  if (!validator.isEmpty(req.body.username))
-    validationErrors.push({ msg: "Please enter a valid username." });
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
   if (validator.isEmpty(req.body.password))
@@ -81,6 +75,13 @@ exports.getSignup = (req, res) => {
 
 exports.postSignup = (req, res, next) => {
   const validationErrors = [];
+
+  if (validator.isEmpty(req.body.firstName))
+    validationErrors.push({ msg: "Please enter a valid first name." });
+  if (validator.isEmpty(req.body.lastName))
+    validationErrors.push({ msg: "Please enter a valid last name." });
+  if (validator.isEmpty(req.body.userName))
+    validationErrors.push({ msg: "Please enter a valid username." });
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
   if (!validator.isLength(req.body.password, { min: 8 }))
@@ -99,6 +100,8 @@ exports.postSignup = (req, res, next) => {
   });
 
   const user = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
