@@ -324,8 +324,8 @@ login.ejs  styles
     width: auto;
     row-gap: 10px;
     column-gap: 2em;
-    padding-top:20px;
-    padding-bottom: 20px;
+    padding-top:40px;
+    padding-bottom: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -395,7 +395,7 @@ login.ejs  styles
     opacity: 100%;
 }
 .del:hover {
-    color: rgb(124, 255, 141);
+    color: rgb(124, 194, 255);
     
 }
 
@@ -580,8 +580,68 @@ login.ejs  styles
 padding: 20px;
 width: 128px;
 }
+#hoverWatch{
+  position: absolute;
+  font-size: 12px;
+  padding-top: 50px;
+  width: 45px;
+  height: 45px;
+  left: -20px;
+  top:-10px;
+  opacity: 0%;
+}
+#hoverWatch:hover{
+ background-color: none;
+  opacity: 100%;
+}
+#hoverTextWatch{
+  width: 135px;
+  position: absolute;
+  
+}
+  
+#hoverRec{
+  position: absolute;
+  font-size: 12px;
+  padding-top: 50px;
+  width: 45px;
+  height: 40px;
+  left: -10px;
+  top:-10px;
+  opacity: 0%;
+}
+#hoverRec:hover{
+ 
+  opacity: 100%;
+ }
 
+#hoverTextRec{
+  width: 150px;
+  position: absolute;
+  left: -50px;
+}
 
+#hoverDel{
+  position: absolute;
+  font-size: 12px;
+  padding-top: 50px;
+  width: 45px;
+  height: 40px;
+  left: -10px;
+  top:-10px;
+  opacity: 0%;
+}
+#hoverDel:hover{
+ 
+  opacity: 100%;
+ }
+
+#hoverDelText{
+  width: 150px;
+  position: absolute;
+  left: -65px;
+  
+}
 
 
 

@@ -70,9 +70,22 @@
                             <img class='movie-image' src='<%=el.image%>' alt=''poster image' width='128' >
                             <!-- <span class='not'><%= el.title %></br></span> -->
                             <div class='icon-background' data-id='<%=el._id%>'>
-                            <span title='Mark Watched' class='watchedMovie fa fa-binoculars'></span>
-                            <!-- <span title='Recommend to Others' class='liked fa fa-arrow-up'></span> -->
-                            <span title='Remove from List' class='del fa fa-circle-xmark'></span>
+                            <span class='watchedMovie fa fa-binoculars'>
+                                <div id= 'hoverWatch'><span id="hoverTextWatch"> Mark Watched </span></div>
+                            </span>
+                            <%if (el.recommend === false) {%>
+                                <span title='' class='like fa fa-star'>
+                                    <div id="hoverRec"><span id= 'hoverTextRec'>Recommend to Others</span></div>
+                                </span>
+                            <%}%>
+                            <%if (el.recommend === true) {%>
+                                <span title='' class='unlike fa fa-star'>
+                                    <div id="hoverRec"><span id= 'hoverTextRec'>Un-recommend to Others</span></div>
+                                </span>
+                            <%}%>
+                            <span title='' class='del fa fa-circle-xmark'>
+                                <div id="hoverDel"><span id= 'hoverDelText'>Remove from List</span></div>
+                            </span>
                             </div>
                             
                         </li> 
@@ -124,7 +137,7 @@
 
       
 
-<div class="watchTitle">
+<!-- <div class="watchTitle">
     <h1>Most Watched</h1>
 </div>
 <div id="watchlist">
@@ -133,7 +146,7 @@
             <img class="movie-image" src="<%=el.image%>" alt=""poster image" width="128" >
         </div> 
     <% }) %>    
-</div>
+</div> -->
 
 </div>  
 
